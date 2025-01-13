@@ -11,26 +11,26 @@
 
     <title>Apache JMeter Dashboard</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="performance-test-API/sbadmin2-1.0.7/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Bootstrap Core CSS -->
+    <link href="sbadmin2-1.0.7/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="performance-test-API/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="performance-test-API/sbadmin2-1.0.7/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="sbadmin2-1.0.7/dist/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Dashboard CSS -->
-    <link href="performance-test-API/content/css/dashboard.css" rel="stylesheet">
+    <!-- Dashboard css -->
+    <link href="content/css/dashboard.css" rel="stylesheet">
 
-    <!-- Table Sorter -->
-    <link href="performance-test-API/content/css/theme.blue.css" rel="stylesheet">
+    <!-- Table sorter -->
+    <link href="content/css/theme.blue.css" rel="stylesheet">
 
-    <!-- Icon -->
-    <link rel="icon" type="image/png" href="performance-test-API/content/pages/icon-apache.png" />
+    <!-- icon -->
+    <link rel="icon" type="image/png" href="content/pages/icon-apache.png" />
 
     <!-- Custom Fonts -->
-    <link href="performance-test-API/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -55,13 +55,13 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="performance-test-API/content/pages/OverTime.html">Over Time</a>
+                                    <a href="content/pages/OverTime.html">Over Time</a>
                                 </li>
                                 <li>
-                                    <a href="performance-test-API/content/pages/Throughput.html">Throughput</a>
+                                    <a href="content/pages/Throughput.html">Throughput</a>
                                 </li>
                                 <li>
-                                    <a href="performance-test-API/content/pages/ResponseTimes.html">Response Times</a>
+                                    <a href="content/pages/ResponseTimes.html">Response Times</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -71,7 +71,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Customs Graphs<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="performance-test-API/content/pages/CustomsGraphs.html">Over Time</a>
+                                    <a href="content/pages/CustomsGraphs.html">Over Time</a>
                                 </li>
                             </ul>
                         </li>
@@ -108,16 +108,96 @@
                      </div>
                 </div>
             </div>
-            <!-- Additional content sections omitted for brevity -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default" style="text-align:center;">
+                        <div class="panel-heading">
+                           <p class="dashboard-title"><a href="https://en.wikipedia.org/wiki/Apdex" target="_blank">APDEX (Application Performance Index)</a></p>
+                        </div>
+                        <div class="panel-body">
+                            <section id="apdex" class="col-md-12 table-responsive">
+                                <table id="apdexTable" class="table table-bordered table-condensed tablesorter ">
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" >
+                    <div class="panel panel-default" style="text-align:center;">
+                        <div class="panel-heading">
+                           <p class="dashboard-title">Requests Summary</p>
+                        </div>
+                           <div class="panel-body">
+                            <div class="flot-chart" style="height:200px;">
+                                <div class="flot-chart-content" id="flot-requests-summary" style="height:200px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-default" style="text-align:center;">
+                       <div class="panel-heading" >
+                           <p class="dashboard-title">Statistics</p>
+                       </div>
+                <div class="panel-body ">
+                    <section class="col-md-12 table-responsive">
+                        <table id="statisticsTable" class="table table-bordered table-condensed tablesorter " >
+                        </table>
+                    </section>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-default" style="text-align:center;">
+                    <div class="panel-heading">
+                        <p class="dashboard-title">Errors</p>
+                    </div>
+                    <div class="panel-body">
+                        <section class="col-md-12 table-responsive">
+                            <table id="errorsTable" class="table table-bordered table-condensed tablesorter ">
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-default" style="text-align:center;">
+                    <div class="panel-heading">
+                        <p class="dashboard-title">Top 5 Errors by sampler</p>
+                    </div>
+                    <div class="panel-body">
+                        <section class="col-md-12 table-responsive">
+                            <table id="top5ErrorsBySamplerTable" class="table table-bordered table-condensed tablesorter ">
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="performance-test-API/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="performance-test-API/sbadmin2-1.0.7/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="performance-test-API/sbadmin2-1.0.7/bower_components/flot/jquery.flot.js"></script>
-    <script src="performance-test-API/content/js/dashboard-commons.js"></script>
-    <script src="performance-test-API/content/js/dashboard.js"></script>
+    <!-- jQuery -->
+    <script src="sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="sbadmin2-1.0.7/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="sbadmin2-1.0.7/bower_components/flot/excanvas.min.js"></script>
+    <script src="sbadmin2-1.0.7/bower_components/flot/jquery.flot.js"></script>
+    <script src="sbadmin2-1.0.7/bower_components/flot/jquery.flot.pie.js"></script>
+    <script src="sbadmin2-1.0.7/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="sbadmin2-1.0.7/bower_components/flot/jquery.flot.time.js"></script>
+    <script src="sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="sbadmin2-1.0.7/bower_components/flot-axislabels/jquery.flot.axislabels.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <script src="content/js/dashboard-commons.js"></script>
+    <script src="content/js/dashboard.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="sbadmin2-1.0.7/dist/js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="content/js/jquery.tablesorter.min.js"></script>
+
 </body>
 
 </html>
